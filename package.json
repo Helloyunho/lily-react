@@ -1,0 +1,32 @@
+{
+  "name": "lily-react",
+  "version": "0.0.1-pre1",
+  "description": "A calm, rounded React component library",
+  "scripts": {
+    "lint": "eslint .",
+    "fmt": "eslint --fix ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.9.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
+    "@eslint/js": "^9.39.4",
+    "@types/node": "^25.9.4",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.7.0",
+    "neostandard": "^0.13.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1"
+  }
+}
