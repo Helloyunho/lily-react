@@ -1,11 +1,12 @@
-import { Button } from '@/registry/ui/button'
+import { useState } from 'react'
+import { Calendar } from '@/registry/ui/calendar'
 
 function App () {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
+
   return (
     <div className='w-full h-screen flex flex-col gap-4 justify-center items-center'>
-      <Button>Default</Button>
-      <Button variant='ghost'>Ghost</Button>
-      <Button variant='destructive'>Destructive</Button>
+      <Calendar mode='single' selected={selectedDate} onSelect={setSelectedDate} />
     </div>
   )
 }
