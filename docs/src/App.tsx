@@ -1,12 +1,24 @@
-import { useState } from 'react'
-import { Calendar } from '@/registry/ui/calendar'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/registry/ui/card'
+import { Button } from '@/registry/ui/button'
 
 function App () {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
-
   return (
     <div className='w-full h-screen flex flex-col gap-4 justify-center items-center'>
-      <Calendar mode='single' selected={selectedDate} onSelect={setSelectedDate} />
+      <Card>
+        <CardHeader>
+          <CardTitle>Upgrade to Pro</CardTitle>
+          <CardDescription>Unlock every component and priority support.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className='text-sm tracking-[-0.39px] text-(--text)/72'>
+            Your trial ends in 7 days. Upgrade now to keep going.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button>Upgrade</Button>
+          <Button variant='ghost'>Maybe later</Button>
+        </CardFooter>
+      </Card>
     </div>
   )
 }
