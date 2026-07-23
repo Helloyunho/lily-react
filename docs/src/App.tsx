@@ -1,26 +1,34 @@
 import {
-  Field,
-  FieldGroup,
-  FieldLabel,
-  FieldDescription,
-  FieldError
-} from '@/registry/ui/field'
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger
+} from '@/registry/ui/hover-card'
+import { Avatar } from '@/registry/ui/avatar'
 
 function App () {
   return (
     <div className='w-full h-screen flex flex-col gap-4 justify-center items-center'>
-      <FieldGroup className='w-full max-w-sm'>
-        <Field>
-          <FieldLabel htmlFor='field-email'>Email</FieldLabel>
-          <div className='w-96 h-16 bg-gray-200 rounded-2xl' />
-          <FieldDescription>We'll never share your email.</FieldDescription>
-        </Field>
-        <Field>
-          <FieldLabel htmlFor='field-username'>Username</FieldLabel>
-          <div className='w-96 h-16 bg-gray-200 rounded-2xl' />
-          <FieldError>This username is already taken.</FieldError>
-        </Field>
-      </FieldGroup>
+      <HoverCard>
+        <HoverCardTrigger
+          href='https://example.com'
+          target='_blank'
+          rel='noreferrer'
+          className='link font-medium tracking-[-0.39px]'
+        >
+          @example
+        </HoverCardTrigger>
+        <HoverCardContent>
+          <div className='flex gap-3'>
+            <Avatar src='/levish_avatar.png' alt='example' />
+            <div className='flex flex-col gap-1'>
+              <p className='font-medium'>example</p>
+              <p className='text-xs leading-normal text-(--text)/56'>
+                Building lily — a Svelte component library.
+              </p>
+            </div>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
     </div>
   )
 }
