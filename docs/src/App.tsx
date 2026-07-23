@@ -1,26 +1,21 @@
-import { SearchIcon } from 'lucide-react'
-import {
-  InputGroup,
-  InputGroupInput,
-  InputGroupAddon
-} from '@/registry/ui/input-group'
+import { InputOTP, InputOTPSlot, InputOTPSeparator, InputOTPGroup } from '@/registry/ui/input-otp'
 
 function App () {
   return (
     <div className='w-full h-screen bg-white flex flex-col gap-4 justify-center items-center'>
-      <div className='flex w-full max-w-sm flex-col gap-3'>
-        <InputGroup>
-          <InputGroupAddon>$</InputGroupAddon>
-          <InputGroupInput type='number' placeholder='0.00' />
-          <InputGroupAddon align='inline-end'>USD</InputGroupAddon>
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon>
-            <SearchIcon aria-hidden='true' />
-          </InputGroupAddon>
-          <InputGroupInput placeholder='Search…' />
-        </InputGroup>
-      </div>
+      <InputOTP length={6}>
+        <InputOTPGroup>
+          {[0, 1, 2].map((_, index) => (
+            <InputOTPSlot key={index} />
+          ))}
+        </InputOTPGroup>
+        <InputOTPSeparator />
+        <InputOTPGroup>
+          {[3, 4, 5].map((_, index) => (
+            <InputOTPSlot key={index} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
     </div>
   )
 }
