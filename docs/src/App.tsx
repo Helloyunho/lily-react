@@ -1,21 +1,16 @@
-import { InputOTP, InputOTPSlot, InputOTPSeparator, InputOTPGroup } from '@/registry/ui/input-otp'
+import { Kbd } from '@/registry/ui/kbd'
 
 function App () {
   return (
     <div className='w-full h-screen bg-white flex flex-col gap-4 justify-center items-center'>
-      <InputOTP length={6}>
-        <InputOTPGroup>
-          {[0, 1, 2].map((_, index) => (
-            <InputOTPSlot key={index} />
-          ))}
-        </InputOTPGroup>
-        <InputOTPSeparator />
-        <InputOTPGroup>
-          {[3, 4, 5].map((_, index) => (
-            <InputOTPSlot key={index} />
-          ))}
-        </InputOTPGroup>
-      </InputOTP>
+      <div
+        className='flex items-center gap-2 text-sm tracking-[-0.39px] text-(--text)/72'
+      >
+        Press
+        <Kbd>⌘</Kbd>
+        <Kbd>K</Kbd>
+        to open search
+      </div>
     </div>
   )
 }
