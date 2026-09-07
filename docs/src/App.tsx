@@ -1,12 +1,14 @@
-import { Label } from '@/registry/ui/label'
-import { Input } from '@/registry/ui/input'
+import { useState } from 'react'
+import { NumberField } from '@/registry/ui/number-field'
 
 function App () {
+  const [value, setValue] = useState<number | null>(0)
+  console.log(value)
+
   return (
     <div className='w-full h-screen bg-white flex flex-col gap-4 justify-center items-center'>
       <div className='flex max-w-xs flex-col gap-2'>
-        <Label htmlFor='email'>Email</Label>
-        <Input id='email' type='email' placeholder='you@example.com' />
+        <NumberField value={value} onChange={setValue} min={0} max={10} />
       </div>
     </div>
   )
