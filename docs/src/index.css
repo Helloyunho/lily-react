@@ -36,15 +36,33 @@
   }
 
   :root {
-    --bg: #f8f8f8;
+    /* The step between these two is load-bearing: lily separates cards, dialogs and
+		 * popovers from the page with colour alone, no borders. #f0f0f0 -> #ffffff is 5.2 L*,
+		 * matching the dark pair, so the same design reads the same in both modes. Equal
+		 * values make every elevated surface invisible. */
+    --bg: #f0f0f0;
     --bg-elevated: #ffffff;
     --text: #0d0d0d;
+
+    /* Chart series palette — the one sanctioned color surface in the
+		 * otherwise-monochrome system. Override to theme charts. */
+    --chart-1: #3182f6;
+    --chart-2: #10b981;
+    --chart-3: #f59e0b;
+    --chart-4: #8b5cf6;
+    --chart-5: #f43f5e;
   }
 
   :root.dark {
     --bg: #111111;
     --bg-elevated: #1c1c1c;
     --text: #efefef;
+
+    --chart-1: #4593fc;
+    --chart-2: #34d399;
+    --chart-3: #fbbf24;
+    --chart-4: #a78bfa;
+    --chart-5: #fb7185;
   }
 
   body {
@@ -93,8 +111,8 @@
   }
 
   /* Press feedback — only button-like controls scale on press. Plain text /
-   * navigation links (sidebar, TOC, lists) must NOT jump when clicked. The
-   * Button component carries data-slot="button" even when rendered as <a>. */
+	 * navigation links (sidebar, TOC, lists) must NOT jump when clicked. The
+	 * Button component carries data-slot="button" even when rendered as <a>. */
   button,
   a[data-slot='button'] {
     transition: transform 0.2s var(--ease-spring);
@@ -156,13 +174,13 @@
     }
 
     to {
-      height: var(--accordion-panel-height, var(--accordion-panel-height, auto));
+      height: var(--bits-accordion-content-height, var(--accordion-panel-height, auto));
     }
   }
 
   @keyframes accordion-up {
     from {
-      height: var(--accordion-panel-height, var(--accordion-panel-height, auto));
+      height: var(--bits-accordion-content-height, var(--accordion-panel-height, auto));
     }
 
     to {
@@ -176,13 +194,13 @@
     }
 
     to {
-      height: var(--collapsible-panel-height);
+      height: var(--bits-collapsible-content-height);
     }
   }
 
   @keyframes collapsible-up {
     from {
-      height: var(--collapsible-panel-height);
+      height: var(--bits-collapsible-content-height);
     }
 
     to {

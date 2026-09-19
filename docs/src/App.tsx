@@ -1,14 +1,18 @@
 import { useState } from 'react'
-import { NumberField } from '@/registry/ui/number-field'
+import { ChoiceGroup, ChoiceGroupItem } from '@/registry/ui/choice-group'
 
 function App () {
-  const [value, setValue] = useState<number | null>(0)
+  const [value, setValue] = useState<string>('daily')
   console.log(value)
 
   return (
     <div className='w-full h-screen bg-white flex flex-col gap-4 justify-center items-center'>
       <div className='flex max-w-xs flex-col gap-2'>
-        <NumberField value={value} onChange={setValue} min={0} max={10} />
+        <ChoiceGroup value={value} onValueChange={(v) => setValue(v)} size='lg'>
+          <ChoiceGroupItem value='daily'>Daily</ChoiceGroupItem>
+          <ChoiceGroupItem value='weekly'>Weekly</ChoiceGroupItem>
+          <ChoiceGroupItem value='monthly'>Monthly</ChoiceGroupItem>
+        </ChoiceGroup>
       </div>
     </div>
   )
